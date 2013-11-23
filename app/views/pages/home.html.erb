@@ -1,84 +1,14 @@
-<div class="jumbotron center">
-  <h1>Wecome to Pin Pic</h1>
-  <p>This the home page for Pin Pic where you can share your pictures online.</p>
-  <p><%= button_to "Be part of the family!", "", role: "button", class: "btn btn-info btn-lg", data: {toggle: "modal", target: "#myModal"} %></p>
-</div>
+<% if user_signed_in? %>
+  <p>Welcome back <% current_user[:email] %>, you are logged in!</p>
+<% else %>
+  <div class="jumbotron center">
+    <h1>Wecome to Pin Pic</h1>
+    <p>This the home page for Pin Pic where you can share your pictures online.</p>
+    <p><%= button_to "Be part of the family!", "", role: "button", class: "btn btn-info btn-lg", data: {toggle: "modal", target: "#myModal"} %></p>
+  </div>
+  <%= render "pages/modals/sign" %>
+<% end %>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Register with Pin Pic</h4>
-      </div>
-      <div class="modal-body">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#signin" data-toggle="tab">Sign in</a></li>
-          <li><a href="#signup" data-toggle="tab">Sign up</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane fade in active" id="signin">
-            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "form-horizontal top-30-margin" }) do |f| %>
-              <div class="form-group">
-                <%= f.label :email, class: "col-sm-2 control-label", for: "inputEmail3" %>
-                <div class="col-sm-10 input-group">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-envelope"></span>
-                  </span>
-                  <%= f.email_field :email, :autofocus => true, class: "form-control", id: "inputEmail3", placeholder:"Email" %>
-                </div>
-              </div>
-              <div class="form-group">
-                <%= f.label :password, class: "col-sm-2 control-label", for: "inputPassword3" %>
-                <div class="col-sm-10 input-group">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-asterisk"></span>
-                  </span>
-                  <%= f.email_field :password, class: "form-control", id: "inputPassword3", placeholder:"Password" %>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <% if devise_mapping.rememberable? -%>
-                      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-                    <% end -%>                  
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <%= f.submit :'Sign in', class: "btn btn-default" %>
-                </div>
-              </div>
-            <% end %> 
-          </div>
-          <div class="tab-pane fade" id="signup">
-            <h2>Sign up</h2>
-            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
-
-              <div><%= f.label :email %><br />
-              <%= f.email_field :email, :autofocus => true %></div>
-
-              <div><%= f.label :password %><br />
-              <%= f.password_field :password %></div>
-
-              <div><%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation %></div>
-
-              <div><%= f.submit "Sign up" %></div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 
 
