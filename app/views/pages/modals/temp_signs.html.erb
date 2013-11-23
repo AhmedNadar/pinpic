@@ -49,16 +49,45 @@
             <% end %> 
           </div>
           <div class="tab-pane fade" id="signup">
-              <h2>Sign up</h2>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: "form-horizontal top-30-margin" }) do |f| %>
+              <%= devise_error_messages! %>
 
-              <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'form-horizontal top-30-margin' }) do |f| %>
-                <%= f.error_notification %>
-                <%= f.input :email, hint: 'Your username please' %>
-                <%= f.input :password, hint: 'No special characters.' %>
-                <%= f.input :password_confirmation, hint: 'again, No special characters.' %>
-                <%= f.button :submit %>
-              <% end %>
-              <%= render "devise/shared/links" %>
+              <div class="form-group">
+                <%= f.label :email, class: "col-sm-2 control-label", for: "inputEmail3" %>
+                <div class="col-sm-10 input-group">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  </span>
+                  <%= f.email_field :email, :autofocus => true, class: "form-control", id: "inputEmail3", placeholder:"Email" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password, class: "col-sm-2 control-label", for: "inputPassword3" %>
+                <div class="col-sm-10 input-group">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                  </span>
+                  <%= f.password_field :password, class: "form-control", id: "inputPassword3", placeholder:"Password" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :'confirm password', class: "col-sm-2 control-label", for: "inputPassword3" %>
+                <div class="col-sm-10 input-group">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                  </span>
+                  <%= f.password_field :password_confirmation, class: "form-control", id: "inputPassword3", placeholder:"Password" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit :'Sign up', class: "btn btn-default" %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
