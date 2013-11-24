@@ -50,7 +50,7 @@
           </div>
           <div class="tab-pane fade" id="signup">
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: "form-horizontal top-30-margin" }) do |f| %>
-              <%= devise_error_messages! %>
+              <%#= devise_error_messages! %>
 
               <div class="form-group">
                 <%= f.label :login, class: "col-sm-2 control-label", for: "inputEmail3" %>
