@@ -18,7 +18,7 @@
 <%#= render "devise/shared/links" %> -->
 
 
-<div class="tab-pane" id="signin">
+<div class="tab-pane" id="login">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "form-horizontal top-30-margin" }) do |f| %>
     <div class="form-group">
       <%= f.label :login, class: "col-sm-2 control-label", for: "inputEmail3" %>
@@ -49,7 +49,7 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit :'Sign in', class: "btn btn-default" %>
+        <%= f.submit :'Login', class: "btn btn-default" %> or <button type="button" class="btn btn-default"><%= render "devise/shared/links" %></button>
       </div>
     </div>
   <% end %> 

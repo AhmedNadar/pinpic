@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
 
-  has_many :pins
-  
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
+  has_many :pins
+
+  #https://github.com/thoughtbot/paperclip#quick-start
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

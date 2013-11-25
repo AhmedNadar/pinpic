@@ -28,4 +28,7 @@ Pinpic::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # https://github.com/thoughtbot/paperclip#image-processor
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

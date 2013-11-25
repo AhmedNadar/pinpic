@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <p>Welcome back <% current_user[:email] %>, you are logged in!</p>
+  <p>Welcome back <strong><%= current_user.username %></strong>, you are logged in!</p>
 <% else %>
   <div class="jumbotron center">
     <h1>Wecome to Pin Pic</h1>
