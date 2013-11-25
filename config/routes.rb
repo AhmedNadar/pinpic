@@ -4,7 +4,7 @@ Pinpic::Application.routes.draw do
   
   resources :pins
 
-  root 'pages#home'
+  root 'pins#index'
   get 'about' => 'pages#about'
   get 'contact' => 'pages#contact'
 
