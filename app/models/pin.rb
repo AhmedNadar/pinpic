@@ -2,7 +2,7 @@ class Pin < ActiveRecord::Base
   
   # associations
   belongs_to :user
-  has_attached_file :image, :styles => { :large => "400x400>", :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :image, :styles => { :large => "515x572>", :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
 
   
